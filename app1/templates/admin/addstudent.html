@@ -1,0 +1,32 @@
+{% extends 'admin/adminmain.html' %}
+{% block content %}
+    <div class="container">
+        <center>
+            <h1>ADD STUDENT</h1>
+        <form action="{% url 'addstudent' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="sname" id="" placeholder="NAME"><br><br>
+            <input type="number" name="sage" id="" placeholder="AGE"><br><br>
+
+            <label>Gender:</label>
+                <label>Male:</label>
+                <input type="radio" name="sgender" id="" value="male">
+                <label>Female:</label>
+                <input type="radio" name="sgender" id="" value="female">
+                <label>Other:</label>
+                <input type="radio" name="sgender" id="" value="other">
+            <br><br>
+
+            <select name="select" id="">
+                <option>Select Course</option>
+                {% for i in courses %}
+                    <option value="{{ i.id }}">{{ i.course_name }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <button type="submit">SUBMIT</button>
+        </form>
+    </center>
+    </div>
+    {% endblock %}

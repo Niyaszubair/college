@@ -1,0 +1,18 @@
+{% extends 'user/main.html' %}
+{% block content %}
+
+<div class="container">
+    <center>
+    <h1>Sign In</h1>
+    <form action="{% url 'user_login' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="tuname" id="" placeholder="Username"><br><br>
+        <input type="password" name="tpassword" id="" placeholder="password"><br><br>
+        <button type="submit">Submit</button>
+        
+
+    </form>
+</center>
+</div>
+
+{% endblock %}

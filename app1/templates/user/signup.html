@@ -1,0 +1,41 @@
+{% extends 'user/main.html' %}
+{% block content %}
+
+<div class="container">
+    <center>
+    <h1>Sign up</h1>
+    <form action="{% url 'add_teacher' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="tfname" id="" placeholder="First Name"><br><br>
+        <input type="text" name="tlname" id="" placeholder="Last Name"><br><br>
+        <input type="text" name="tuname" id="" placeholder="Username"><br><br>
+        <input type="email" name="tmail" id="" placeholder="Email"><br><br>
+        <input type="text" name="taddress" id="" placeholder="Address"><br><br>
+        <label for="file">Profile:</label>
+        <input type="file" name="file" id="" accept="image/*"><br><br>
+        <label>Gender:</label>
+            <label>Male:</label>
+            <input type="radio" name="tgender" id="" value="male">
+            <label>Female:</label>
+            <input type="radio" name="tgender" id="" value="female">
+            <label>Other:</label>
+            <input type="radio" name="tgender" id="" value="other">
+        <br><br>
+        <!-- <label for="select">Course:</label> -->
+        <select name="select" id="">
+            <option>Select Course</option>
+            {% for i in courses %}
+                <option value="{{ i.id }}">{{ i.course_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="password" name="tpassword" id="" placeholder="password"><br><br>
+        <input type="password" name="tcpassword" id="" placeholder="Confirm Password"><br><br>
+        <button type="submit">Submit</button>
+        
+
+    </form>
+</center>
+</div>
+
+{% endblock %}
